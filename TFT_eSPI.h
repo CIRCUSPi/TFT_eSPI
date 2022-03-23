@@ -61,7 +61,9 @@
 #endif
 
 // Include the processor specific drivers
-#if defined (ESP32)
+#if defined (PIXELBIT)
+  #include "Processors/TFT_eSPI_PixelBit.h"
+#elif defined (ESP32)
   #include "Processors/TFT_eSPI_ESP32.h"
 #elif defined (ESP8266)
   #include "Processors/TFT_eSPI_ESP8266.h"

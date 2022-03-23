@@ -28,6 +28,10 @@
   #include "Processors/TFT_eSPI_Generic.c"
 #endif
 
+#if defined (PIXELBIT)
+TCA5405 tft_tca5405;
+#endif
+
 #ifndef SPI_BUSY_CHECK
   #define SPI_BUSY_CHECK
 #endif
@@ -594,6 +598,10 @@ void TFT_eSPI::begin(uint8_t tc)
 ***************************************************************************************/
 void TFT_eSPI::init(uint8_t tc)
 {
+#if defined (PIXELBIT)
+  tft_tca5405.init();
+#endif
+  
   if (_booted)
   {
     initBus();

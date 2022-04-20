@@ -11,7 +11,7 @@
 // Include processor specific header
 #include "soc/spi_reg.h"
 #include "driver/spi_master.h"
-#include <tca5405.h>
+#include "TCA5405.h"
 
 #if !defined(CONFIG_IDF_TARGET_ESP32C3) && !defined(CONFIG_IDF_TARGET_ESP32S2) && !defined(CONFIG_IDF_TARGET_ESP32)
   #define CONFIG_IDF_TARGET_ESP32
@@ -197,8 +197,8 @@ SPI3_HOST = 2
 ////////////////////////////////////////////////////////////////////////////////////////
 #ifndef TFT_CS
   #define TFT_CS -1  // Keep DMA code happy
-  #define CS_L       do{tft_tca5405.set_gpo(PIXELBIT_TFT_CHIPSELECT, LOW);tft_tca5405.transmit();}while(0)
-  #define CS_H       do{tft_tca5405.set_gpo(PIXELBIT_TFT_CHIPSELECT, HIGH);tft_tca5405.transmit();}while(0)
+  #define CS_L       TCA5405_lcdcs_clr()
+  #define CS_H       TCA5405_lcdcs_set()
 #else
   #if defined (TFT_PARALLEL_8_BIT)
     #if TFT_CS >= 32

@@ -29,7 +29,7 @@
 #endif
 
 #if defined (PIXELBIT)
-TCA5405 tft_tca5405;
+#include "Processors/TCA5405.cpp"
 #endif
 
 #ifndef SPI_BUSY_CHECK
@@ -599,7 +599,7 @@ void TFT_eSPI::begin(uint8_t tc)
 void TFT_eSPI::init(uint8_t tc)
 {
 #if defined (PIXELBIT)
-  tft_tca5405.init();
+  TCA5405_init();
 #endif
   
   if (_booted)

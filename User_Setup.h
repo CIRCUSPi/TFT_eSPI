@@ -8,6 +8,11 @@
 //   run without the need to make any more changes for a particular hardware setup!
 //   Note that some sketches are designed for a particular TFT pixel width/height
 
+// User defined information reported by "Read_User_Setup" test & diagnostics example
+#define USER_SETUP_INFO "User_Setup"
+
+// Define to disable all #warnings in library (can be put in User_Setup_Select.h)
+//#define DISABLE_ALL_LIBRARY_WARNINGS
 
 // ##################################################################################
 //
@@ -31,8 +36,9 @@
 //#define STM_PORTA_DATA_BUS
 //#define STM_PORTB_DATA_BUS
 
-// Tell the library to use 8 bit parallel mode (otherwise SPI is assumed)
+// Tell the library to use parallel mode (otherwise SPI is assumed)
 //#define TFT_PARALLEL_8_BIT
+//#defined TFT_PARALLEL_16_BIT // **** 16 bit parallel ONLY for RP2040 processor ****
 
 // Display type -  only define if RPi display
 //#define RPI_DISPLAY_TYPE // 20MHz maximum SPI
